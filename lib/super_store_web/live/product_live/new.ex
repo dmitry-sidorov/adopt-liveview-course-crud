@@ -1,4 +1,4 @@
-defmodule SuperStoreWeb.PageLive do
+defmodule SuperStoreWeb.PageLive.New do
   use SuperStoreWeb, :live_view
   import SuperStoreWeb.CoreComponents
   alias SuperStore.{Catalog, Catalog.Product}
