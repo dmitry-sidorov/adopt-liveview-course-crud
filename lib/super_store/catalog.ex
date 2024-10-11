@@ -12,4 +12,6 @@ defmodule SuperStore.Catalog do
     |> Product.changeset(attrs)
     |> Repo.insert()
   end
+
+  def get_product!(id), do: Repo.get!(Product, id)
 end
