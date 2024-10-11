@@ -19,7 +19,7 @@ defmodule SuperStoreWeb.Router do
 
     live "/", ProductLive.Index, :index
     live "/products/new", ProductLive.New, :new
-    live "/products/show/:id", ProductLive.Show, :show
+    live "/products/:id", ProductLive.Show, :show
   end
 
   # Other scopes may use custom stacks.
