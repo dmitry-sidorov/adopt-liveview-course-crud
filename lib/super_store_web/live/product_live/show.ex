@@ -13,6 +13,11 @@ defmodule SuperStoreWeb.ProductLive.Show do
     <.header>
       Product <%= @product.id %>
       <:subtitle>This is a product record from your database.</:subtitle>
+      <:actions>
+        <.link patch={~p"/products/#{@product}/edit"}>
+          <.button>Edit</.button>
+        </.link>
+      </:actions>
     </.header>
 
     <.list>
