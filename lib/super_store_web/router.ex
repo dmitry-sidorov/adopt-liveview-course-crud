@@ -20,7 +20,6 @@ defmodule SuperStoreWeb.Router do
     live "/", ProductLive.Index, :index
     live "/:id/edit", ProductLive.Index, :edit
     live "/new", ProductLive.Index, :new
-    live "/products/new", ProductLive.New, :new
     live "/products/:id", ProductLive.Show, :show
     live "/products/:id/edit", ProductLive.Edit, :edit
   end
