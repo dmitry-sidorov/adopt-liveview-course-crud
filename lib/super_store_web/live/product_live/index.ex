@@ -29,12 +29,17 @@ defmodule SuperStoreWeb.ProductLive.Index do
     assign(socket, product: nil)
   end
 
+  defp apply_action(socket, :new, _params) do
+    product = %Product{}
+    assign(socket, product: product)
+  end
+
   def render(assigns) do
     ~H"""
     <.header>
       Listing Products
       <:actions>
-        <.link patch={~p"/products/new"}>
+        <.link patch={~p"/new"}>
           <.button>New Product</.button>
         </.link>
       </:actions>
@@ -59,12 +64,13 @@ defmodule SuperStoreWeb.ProductLive.Index do
         </.link>
       </:action>
     </.table>
-    <.modal :if={@live_action == :edit} id="product-modal" show on_cancel={JS.patch(~p"/")}>
+    <.modal :if={@live_action in [:edit, :new]} id="product-modal" show on_cancel={JS.patch(~p"/")}>
       <.live_component
         module={FormComponent}
         id="quick-edit-form"
         product={@product}
         action={@live_action}
+        patch={~p"/"}
       >
         <h1>Editing a product</h1>
       </.live_component>
