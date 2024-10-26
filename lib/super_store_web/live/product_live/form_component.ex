@@ -50,6 +50,12 @@ defmodule SuperStoreWeb.ProductLive.FormComponent do
           put_flash(socket, :info, "Product ID #{product.id} updated!")
           |> push_navigate(to: ~p"/")
 
+          if patch = socket.assigns[:patch] do
+            push_patch(socket, to: patch)
+          else
+            push_navigate(socket, to: ~p"/products/#{product.id}/edit")
+          end
+
         {:error, %Ecto.Changeset{} = changeset} ->
           form = to_form(changeset)
 
